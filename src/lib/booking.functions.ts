@@ -163,7 +163,7 @@ export const getBookingFn = createServerFn({ method: "GET" })
     const [booking, events, versions, decisions, audit, members] = await Promise.all([
       sb
         .from("bookings")
-        .select("*, experts(display_name, domain, timezone, success_rate)")
+        .select("id, expert_id, requester_id, session_type, priority, source, state, start_time, end_time, client_timezone, notes, version, user_completion_rate, correlation_id, logical_sequence, created_at, updated_at, experts(display_name, domain, timezone, success_rate)")
         .eq("id", data.id)
         .maybeSingle(),
       sb

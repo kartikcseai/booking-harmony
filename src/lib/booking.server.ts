@@ -689,7 +689,7 @@ export interface CreateBookingInput {
   clientTimezone: string;
   notes: string;
   /** logical occurrence time from the source; defaults to receipt time */
-  occurredAt?: string;
+  occurredAt?: string | undefined;
 }
 
 export async function createBooking(
